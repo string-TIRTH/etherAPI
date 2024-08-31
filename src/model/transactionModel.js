@@ -23,6 +23,6 @@ const transactionSchema = new mongoose.Schema({
     confirmations: { type: String, required: true },
     isError: { type: String, required: true },
 });
-
+transactionSchema.index({ address: 1, hash: 1 }, { unique: true });
 const transactionsModel = mongoose.model('transactions', transactionSchema)
 module.exports = transactionsModel
