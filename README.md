@@ -22,4 +22,16 @@ This Node.js application fetches, stores, and processes Ethereum transactions fo
 
 ```bash
 GET /api/transactions/getTransactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
+```
+### 2. Get Expense
 
+**Endpoint:** `/api/transactions/getExpense/:address`
+
+**Method:** `GET`
+
+**Description:** Calculates and returns the total gas expenses for all transactions associated with the given address. It also provides the current price of Ethereum.
+
+**Example Request:**
+
+```bash
+GET /api/transactions/getExpense/0xce94e5621a5f7068253c42558c147480f38b5e0d
