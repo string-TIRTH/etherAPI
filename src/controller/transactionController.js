@@ -2,11 +2,11 @@ const transactionsModel = require('../model/transactionModel');
 const priceModel = require('../model/cryptoPriceModel');
 const axios = require('axios');
 const storeTransactions = async (address,transactions)=>{
-    transactionsModel.deleteMany({address:address});
+    await transactionsModel.deleteMany({address:address});
     for (const transaction of transactions) {
       transaction.address = address;
     }
-    transactionsModel.insertMany(transactions)
+    await transactionsModel.insertMany(transactions)
 }
 const getTransactions =  async (req, res) => {
     try {
