@@ -31,7 +31,7 @@ const storeTransactions = async (address,transactions)=>{
         }
       }
 }
-const getTransactions = ('/api/transactions/:address', async (req, res) => {
+const getTransactions =  async (req, res) => {
     try {
       const { address } = req.params;
       const response = await axios.get(
@@ -46,7 +46,7 @@ const getTransactions = ('/api/transactions/:address', async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: 'Error fetching transactions' });
     }
-});
+};
 
 module.exports = {
     getTransactions
