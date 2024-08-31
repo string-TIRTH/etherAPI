@@ -2,7 +2,6 @@ const transactionsModel = require('../model/transactionModel');
 const axios = require('axios');
 const storeTransactions = async (address,transactions)=>{
     for (const transaction of transactions) {
-        console.log(transaction)
         const existingTransaction = await transactionsModel.findOne({address:address, hash: transaction.hash });
         if (!existingTransaction) {
             const newTransaction = new transactionsModel({
@@ -45,7 +44,6 @@ const getTransactions = ('/api/transactions/:address', async (req, res) => {
   
       res.json(transactions);
     } catch (error) {
-        console.log(error)
       res.status(500).json({ error: 'Error fetching transactions' });
     }
 });
